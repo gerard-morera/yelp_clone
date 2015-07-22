@@ -7,9 +7,9 @@ describe Review, type: :model do
 
   it 'will be deleted when restaurant deleted' do 
     rest = Restaurant.create(name:'KFC')
-    rev = Review.create(thoughts: "Hello", rating: 2, restaurant: rest)
+    rev  = Review.create(thoughts: "Hello", rating: 2, restaurant: rest)
     
-    expect {rest.destroy!}.to change {Review.count}.by(1)
+    expect {rest.destroy!}.to change {Review.count}.by(-1)
 
   end
 end
